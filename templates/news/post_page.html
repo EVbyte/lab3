@@ -29,15 +29,19 @@
     </div>
     {% endif %}
 
-<div style="padding-right: 30%; padding-left: 30%">
+{% if request.user.is_authenticated %}
+<div class="col-4">
+<p>Добавить комментарий</p>
+<form action="" id="add_form" method="post">
+{% csrf_token %}
+{{form.as_p}}
+</form>
 
-        <form action=""  id="add_form" method="post">
-            {% csrf_token %}
-            {{form.as_p}}
-        </form>
-
-        <button form="add_form" type="submit" class="btn btn-primary">Добавить</button>
+<button form="add_form" type="submit" class="btn btn-primary">Добавить</button>
 
 </div>
+{% else %}
+<h2>Комментарии могут оставить только зарегистрированные пользователи</h2>
+{% endif %}
     </header>
 {% endblock %}
