@@ -1,0 +1,43 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block content %}
+    <header class="projects-section bg-light" style="padding-left: 10%; padding-right: 10%">
+    <h1 class="mx-auto text-center">{{get_article.title}}</h1>
+    <p>{{get_article.post|safe|linebreaks}}</p>
+{% if get_article.image_p %}
+    <img src="{{MEDIA_URL}}{{get_article.image_p.url}}">
+{% endif %}
+    <p>Комментарии {{get_article.comments_articles.all.count}}</p>
+    <h7 class="mx-auto text-center">Опубликовано: {{get_article.date|date:"Y-m-d в H:i:s"}}</h7>
+    <hr>
+
+<ul>
+{% for i in get_article.comments_articles.all %}
+<li class="col-xl-8 col-lg-7">
+    Дата добавления: {{i.create_date}}<br>
+    Автор Комментария: {{i.author}}<br><br>
+
+    {{i.text}}
+</li>
+{% endfor %}
+</ul>
+{% if messages %}
+    <div class="alert alert-success">
+        {% for i in messages %}
+            {{i}}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+<div style="padding-right: 30%; padding-left: 30%">
+
+        <form action=""  id="add_form" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+        </form>
+
+        <button form="add_form" type="submit" class="btn btn-primary">Добавить</button>
+
+</div>
+    </header>
+{% endblock %}

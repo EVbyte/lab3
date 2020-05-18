@@ -1,0 +1,20 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block content %}
+    <header class="projects-section bg-light">
+    <dev class="mx-auto text-center" >
+        {% if request.user.is_authenticated %}
+        {% endif %}
+        {% for i in object_list %}
+
+            <a href="/news/{{i.id}}"><h3>{{i.title}}</h3></a>
+
+            <h12 class="mx-auto text-center" style="padding-left: 47%">{{i.date|date:"d-m-Y"}}</h12>
+
+
+        {% endfor %}
+    </dev>
+    </header>
+    <a href="/news/edit-page" style="padding-left: 92%">Редактирование</a>
+
+{% endblock %}

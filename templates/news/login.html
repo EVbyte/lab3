@@ -1,0 +1,20 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block content %}
+    <header class="projects-section bg-light">
+    <h1 class="mx-auto text-center">Авторизация</h1>
+
+<div class="mx-auto text-center" style="padding-right: 35%; padding-left: 35%">
+    <form style="padding-bottom: 10%" id="add_form" method="post">
+                {% csrf_token %}
+                {{form}}
+    </form>
+
+    <button form="add_form" type="submit" class="btn btn-primary">Добавить</button>
+</div>
+
+
+
+    </header>
+
+{% endblock %}
