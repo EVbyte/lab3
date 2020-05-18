@@ -11,7 +11,6 @@ numpy==1.18.2
 pandas==1.0.3
 Pillow==7.1.2
 psycopg2==2.8.5
-pygame==1.9.6
 pyparsing==2.4.7
 PyQt5==5.14.2
 PyQt5-sip==12.7.2
