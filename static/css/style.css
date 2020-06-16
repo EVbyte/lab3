@@ -1,0 +1,103 @@
+/* Add additional stylesheets below
+-------------------------------------------------- */
+/*
+  Bootstrap's documentation styles
+  Special styles for presenting Bootstrap's documentation and examples
+*/
+
+
+
+/* Body and structure
+-------------------------------------------------- */
+
+body {
+  position: relative;
+}
+
+/* Code in headings */
+h3 code {
+  font-size: 14px;
+  font-weight: normal;
+}
+
+
+/* Tweak navbar brand link to be super sleek
+-------------------------------------------------- */
+header#overview {
+    position: relative;
+    text-align: center;
+}
+
+body > .navbar {
+  font-size: 14px;
+}
+
+.mainmanu{
+  position: fixed;
+  width: 250px;
+  background: #000;
+  top: 50%;
+  transform: translate(0%, -50%);
+  z-index: 9;
+  padding: 30px;
+  left: 10px;
+  border-radius: 20px;
+  height: 300px;
+  min-height: 300px;
+  visibility: hidden;
+    transition: all .3s ease-in-out;
+}
+.mainmanu.scrollon{
+  visibility: visible;
+}
+ul.nav.nav-list.bs-docs-sidenav {
+    margin: 0;
+    display: inline-block;
+}
+.nav li a {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    display: inline-block;
+    margin-bottom: 5px;
+    text-decoration: none;
+    position: relative;
+    left: 0px;
+    opacity: .7;
+    transition: all .3s ease-in-out;
+}
+.nav li a:hover {
+  left: -2px;
+  opacity: 1;
+}
+/* Change the docs' brand */
+
+
+/* Sections
+-------------------------------------------------- */
+
+/* padding for in-page bookmarks and fixed navbar */
+section {
+  padding-top: 50px;
+}
+
+
+.page-header {
+    margin-bottom: 30px;
+}
+
+h3.sub_header {
+    margin-top: 30px;
+}
+
+img.ref_img {
+    border-radius: 15px;
+}
+pre{
+    font-size: 13px;
+    color: #212529;
+    background: #e3e3e3;
+    tab-size: 4;
+    border-radius: 15px;
+    padding: 5px 30px;
+}
