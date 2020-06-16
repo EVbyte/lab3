@@ -1,0 +1,15 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block content %}
+    <header class="projects-section bg-light" style="padding-bottom: 15%">
+<title>Редактирование профиля</title>
+<div>
+  <form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <button type="submit">Save changes</button>
+  </form>
+</div>
+    </header>
+{% endblock %}

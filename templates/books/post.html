@@ -1,0 +1,21 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block content %}
+<title>Статьи</title>
+
+
+
+<header class="projects-section bg-light" style="padding-bottom: 10%">
+<p></p>
+<div class="row">
+
+    {% for i in object_list %}
+
+    {% include 'books/includes/posts_card_template.html' %}
+
+    {% endfor %}
+</div>
+</header>
+
+
+{% endblock %}

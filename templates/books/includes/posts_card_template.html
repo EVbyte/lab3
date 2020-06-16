@@ -1,0 +1,30 @@
+ <hr>
+
+        {% if not forloop.counter|divisibleby:"2" %}
+       <div class="col-3"></div>
+        {% endif %}
+
+        <div class="col">
+
+            <a href="/books/{{i.id}}"><h4 style="color: #023a54">{{i.title}}</h4><p style="color: #023a54">{{i.writer}}</p></a>
+            {% if i.tags.all %}
+            {% endif %}
+                {% if i.image_p %}
+                    <img src="{{MEDIA_URL}}{{i.image_p.url}}"  height="300" width="200">
+                {% endif %}
+                 <h6>
+                        {% for tag in i.tags.all %}
+                            <a style="color: #5a6268" href="{{tag.get_absolute_url}}">#{{tag.tittle}} </a>
+                        {% endfor %}
+                </h6>
+        <p></p>
+            <hr>
+        </div>
+
+
+        {% if forloop.counter|divisibleby:"2" %}
+       <div class="col-3"></div>
+        {% endif %}
+
+
+

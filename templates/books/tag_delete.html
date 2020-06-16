@@ -1,0 +1,28 @@
+{% extends "mainApp/wrapper.html" %}
+
+
+{% block title %}
+    Удалить тег {{tag.tittle|title}} - {{block.super}}
+{% endblock %}
+
+
+{% block content %}
+{% if tag.author == request.user %}
+
+    <div class="container">
+        <div class="row justify-content-center" >
+            <form style="alignment: center" action="{% url 'tag_delete' slug=tag.slug %}" method="post">
+                {% csrf_token %}
+
+                <h3>Вы уверены?</h3>
+                <a href="{{ tag.get_absolute_url }}">Отмена</a>
+                <button type="submit" name="button" class="btn btn-danger">Удалить</button>
+
+
+            </form>
+        </div>
+    </div>
+
+{% endif %}
+
+{% endblock %}

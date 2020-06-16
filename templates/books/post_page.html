@@ -1,0 +1,69 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block content %}
+    <header class="projects-section bg-light" style="padding-left: 15%; padding-right: 10%">
+<body>
+    <div>
+        <h1 class="mx-auto text-center">{{get_article.title}}</h1>
+        <h5 class="mx-auto text_center">{{get_article.writer}}</h5>
+    </div>
+    <div class="row">
+    <div class="col-xs-4 col-md-4">
+        {% if get_article.image_p %}
+            <img src="{{MEDIA_URL}}{{get_article.image_p.url}}" height="600" width="400">
+        {% endif %}
+    </div>
+
+    <div  class="col-lg-6 col-md-4">
+        <p class="mx-auto text-center"> {{get_article.post|safe|linebreaks}}</p>
+    </div>
+    </div>
+</body>
+    <p>
+        {% for tag in get_article.tags.all %}
+            #{{tag.tittle}}
+        {% endfor %}
+    </p>
+    <p>Комментарии {{get_article.comments_articles.all.count}}</p>
+    <hr>
+
+<ul>
+    {% for i in get_article.comments_articles.all %}
+
+    <li>
+        {{i.create_date}}<br>
+        <img src="{{MEDIA_URL}}{{i.author.profile.profile_avatar.url}}" height="40" width="40">
+        <a href="/books/profile_page/{{i.author.profile.id}}/">{{i.author}}</a><br><br>
+
+        {{i.text}}
+    </li>
+        <hr>
+    {% endfor %}
+    </ul>
+
+
+
+    {% if messages %}
+        <div class="alert alert-success">
+            {% for i in messages %}
+                {{i}}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+    {% if request.user.is_authenticated %}
+    <div class="col-4">
+        <p>Добавить комментарий</p>
+            <form action=""  id="add_form" method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+            </form>
+
+            <button form="add_form" type="submit" class="btn btn-primary">Добавить</button>
+
+    </div>
+        {% else %}
+    <p>Комментарии могут оставить только зарегистрированные пользователи</p>
+     {% endif %}
+    </header>
+{% endblock %}

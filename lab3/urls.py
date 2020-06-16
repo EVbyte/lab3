@@ -7,8 +7,7 @@ from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('mainApp.urls')),
-    path('news/', include('news.urls'))
-
+    path('books/', include('books.urls')),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

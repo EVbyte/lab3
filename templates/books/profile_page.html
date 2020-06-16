@@ -1,0 +1,30 @@
+{% extends "mainApp/wrapper.html" %}
+
+{% block content %}
+<title>{{get_profile.user.username}}</title>
+<header class="projects-section bg-light" style="padding-bottom: 15%">
+<body>
+<div class="container">
+        <h2>{{ get_profile.user.get_full_name }}</h2>
+        {% if request.user.profile.id == get_profile.user.profile.id %}
+        <h3><a href="/books/edit/">изменить профиль</a></h3>
+        {% endif %}
+        <div class="row">
+            <div class="col-md-4">
+
+    {% if get_profile.user.profile.profile_avatar %}
+          <img src="{{MEDIA_URL}}{{get_profile.user.profile.profile_avatar.url}}" class="img-fluid img-thumbnail">
+    {% endif %}
+            </div>
+            <div class="col-md-6">
+        <ul>
+          <li>Username: {{ get_profile.user.username }}</li>
+
+            <li>Дата рождения: {{ get_profile.user.profile.birth_date }}</li>
+        </ul>
+        </div>
+    </div>
+</div>
+</body>
+</header>
+{% endblock %}

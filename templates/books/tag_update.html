@@ -1,0 +1,13 @@
+{% extends "mainApp/wrapper.html" %}
+
+
+{% block content %}
+<header class="projects-section bg-light" style="padding-left: 15%; padding-right: 10%; padding-bottom: 27%">
+<form action="{{ tag.get_update_url }}" method="post">
+    {% csrf_token %}
+    {{ form.tittle }}
+    <button type="submit" class="btn">Изменить тег</button>
+</form>
+</header>
+{% endblock %}
+
